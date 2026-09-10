@@ -1,0 +1,7 @@
+const Auth = {
+  toggle(register) { document.querySelector('#login-form').classList.toggle('hidden',register); document.querySelector('#register-form').classList.toggle('hidden',!register); },
+  register(e) { e.preventDefault(); const f=Object.fromEntries(new FormData(e.target)), users=DB.users(); if(users.some(u=>u.username.toLowerCase()===f.username.toLowerCase())) return App.toast('Bu kullanıcı adı zaten alınmış.'); DB.saveUsers([...users,DB.blank(f.name.trim(),f.username.trim(),f.password)]); DB.setCurrent(f.username.trim()); App.start(); },
+  login(e) { e.preventDefault(); const f=Object.fromEntries(new FormData(e.target)), u=DB.users().find(u=>u.username===f.username&&u.password===f.password); if(!u)return App.toast('Kullanıcı adı veya şifre hatalı.'); DB.setCurrent(u.username); App.start(); },
+  forgot(){const username=prompt('Kullanıcı adını yaz:');if(!username)return;const user=DB.users().find(x=>x.username.toLowerCase()===username.trim().toLowerCase());if(!user)return alert('Bu cihazda bu kullanıcı adıyla kayıtlı hesap bulunamadı.');const password=prompt('Yeni şifreni yaz (en az 4 karakter):');if(!password||password.length<4)return alert('Şifre en az 4 karakter olmalı.');const again=prompt('Yeni şifreni tekrar yaz:');if(password!==again)return alert('Şifreler aynı değil.');DB.saveUsers(DB.users().map(x=>x.username===user.username?{...x,password}:x));alert('Şifren bu cihazda yenilendi. Yeni şifrenle giriş yapabilirsin.');},
+  logout() { DB.logout(); location.reload(); }
+};

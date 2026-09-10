@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090d1d" />
+  <title>YKS Silkici 🚀</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <main id="auth-screen" class="auth-screen">
+    <section class="auth-hero">
+      <div class="brand brand-large"><span class="brand-mark">✦</span> YKS Silkici <b>🚀</b></div>
+      <p class="eyebrow">SINAVA GİDEN YOLDA KİŞİSEL KOÇUN</p>
+      <h1>Her gün biraz daha<br><em>hedefine yakın.</em></h1>
+      <p class="auth-copy">Planını kur, emeğini ölç, gelişimini gör. YKS yolculuğun burada tek bir yerde.</p>
+      <div class="hero-stats"><span>⚡ Akıllı takip</span><span>◉ Kişisel alan</span><span>↗ Sürekli gelişim</span></div>
+    </section>
+    <section class="auth-panel glass">
+      <div id="login-form">
+        <p class="eyebrow">TEKRAR HOŞ GELDİN</p><h2>Odaklanma zamanı.</h2>
+        <form onsubmit="Auth.login(event)">
+          <label>Kullanıcı adı<input required name="username" autocomplete="username" placeholder="kullaniciadi"></label>
+          <label>Şifre<input required name="password" type="password" autocomplete="current-password" placeholder="••••••••"></label>
+          <button class="btn primary wide" type="submit">Giriş yap <span>→</span></button>
+        </form>
+        <p class="form-switch">Hesabın yok mu? <button onclick="Auth.toggle(true)">Kayıt ol</button> · <button onclick="Auth.forgot()">Şifremi unuttum</button></p>
+      </div>
+      <div id="register-form" class="hidden">
+        <p class="eyebrow">YKS SİLKİCİ'YE KATIL</p><h2>Yolculuğunu başlat.</h2>
+        <form onsubmit="Auth.register(event)">
+          <label>Adın<input required name="name" autocomplete="name" placeholder="Adın soyadın"></label>
+          <label>Kullanıcı adı<input required name="username" autocomplete="username" placeholder="benzersiz kullanıcı adı"></label>
+          <label>Şifre<input required minlength="4" name="password" type="password" autocomplete="new-password" placeholder="En az 4 karakter"></label>
+          <button class="btn primary wide" type="submit">Hesabımı oluştur <span>→</span></button>
+        </form>
+        <p class="form-switch">Zaten hesabın var mı? <button onclick="Auth.toggle(false)">Giriş yap</button></p>
+      </div>
+    </section>
+  </main>
+
+  <div id="app-shell" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">✦</span> YKS Silkici <b>🚀</b></div>
+      <nav id="nav">
+        <button data-view="dashboard" class="active"><i>⌂</i>Ana Sayfa</button>
+        <button data-view="subjects"><i>▦</i>TYT Maarif Konuları</button>
+        <button data-view="aytSubjects"><i>◆</i>11. AYT Maarif Konuları</button>
+        <button data-view="tasks"><i>✓</i>Günlük Görevler</button>
+        <button data-view="weekly"><i>▤</i>Haftalık Program</button>
+        <button data-view="coach"><i>✦</i>Akıllı Koç</button>
+        <button data-view="pomodoro"><i>◒</i>Pomodoro</button>
+        <button data-view="stopwatch"><i>◷</i>Kronometre</button>
+        <button data-view="clock"><i>◴</i>Canlı Saat</button>
+        <button data-view="notes"><i>▤</i>Not Defteri</button>
+        <button data-view="mistakes"><i>✕</i>Yanlış Defteri</button>
+        <button data-view="personalNotes"><i>✎</i>Kendime Not</button>
+        <button data-view="community"><i>◉</i>Çalışma Topluluğu</button>
+        <button data-view="socialChat"><i>☏</i>Sohbet</button>
+        <button data-view="friends"><i>♧</i>Arkadaşlarım</button>
+        <button data-view="exams"><i>▣</i>Deneme Takibi</button>
+        <button data-view="analysis"><i>↗</i>Analiz</button>
+        <button data-view="goals"><i>◎</i>Hedefler</button>
+      </nav>
+      <div class="sidebar-bottom"><button data-view="settings"><i>⚙</i>Ayarlar</button><button onclick="Auth.logout()"><i>↪</i>Çıkış yap</button></div>
+    </aside>
+    <section class="main-area"><header><button class="mobile-menu" onclick="App.toggleMenu()">☰</button><div id="breadcrumb">ANA SAYFA</div><div class="header-user"><span id="header-avatar">Y</span><div><strong id="header-name">YKS Öğrencisi</strong><small>Hedefe odaklan</small></div></div></header><div id="view" class="view"></div></section>
+  </div>
+  <div id="toast" class="toast"></div><div id="modal-root"></div>
+  <script src="database.js"></script><script src="konular.js"></script><script src="auth.js"></script><script src="tasks.js"></script><script src="notes.js"></script><script src="deneme.js"></script><script src="pomodoro.js"></script><script src="timer.js"></script><script src="analiz.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="community.js"></script><script src="social.js"></script><script src="app.js"></script>
+</body></html>
