@@ -2,7 +2,7 @@
 -- Supabase SQL Editor'da TAMAMINI bir kez çalıştır.
 -- Kullanıcılar e-posta vermeden kullanıcı adı + şifre + kurtarma kodu kullanır.
 
-create extension if not exists pgcrypto;
+create extension if not exists pgcrypto schema extensions;
 
 create table if not exists public.yks_accounts (
   id uuid primary key default gen_random_uuid(),
@@ -38,7 +38,7 @@ create or replace function public.yks_new_session(p_account_id uuid)
 returns text language plpgsql security definer set search_path=public as $$
 declare v_token text;
 begin
-  v_token := encode(gen_random_bytes(32),'hex');
+  v_token := encode(extensions.gen_random_bytes(32),'hex');
   delete from public.yks_account_sessions where expires_at < now();
   insert into public.yks_account_sessions(account_id,token_hash) values(p_account_id,extensions.crypt(v_token,extensions.gen_salt('bf')));
   return v_token;
