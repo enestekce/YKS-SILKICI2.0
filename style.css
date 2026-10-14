@@ -51,5 +51,11 @@
 /* Arkadaş listesinde kısa süreli canlı çevrimiçi durum. */
 .presence-status{font-style:normal;font-size:10px;font-weight:700}.presence-status.online{color:#60dfa5}.presence-status.offline{color:#9aa7c7}
 
+/* Kanal üyeleri: aktif kullanıcılar her zaman üstte ve yeşil görünür. */
+.member-summary{display:flex!important;flex-wrap:wrap;gap:7px;margin:2px 0 4px}.member-summary span{padding:6px 9px;border-radius:99px;background:#202947;color:#c5ceed;font-size:10px}.member-summary .active-count{background:#173c32;color:#76edb8}.member-summary .inactive-count{background:#222a45;color:#abb6d5}.active-members-title{color:#6fe7ad!important}.inactive-members-title{color:#aab4d0!important;margin-top:14px!important}.member-list article.member-online{border-color:#3f9e75;background:#142a2b}.member-list article.member-online .member-person small{color:#78e7b4}.member-list article.member-offline{opacity:.76}.member-role.online-dot{color:#66e9aa!important}
+
 /* Günlük hedef ve bildirim merkezi. */
 .daily-target{margin:18px 0;padding:18px;border-radius:15px;display:flex;justify-content:space-between;align-items:center;gap:18px}.daily-target>div:first-child{flex:1}.daily-target h3{margin:5px 0;font:600 22px 'Space Grotesk'}.daily-target .progress{margin:10px 0}.daily-target small{color:#aab6d6}.daily-target-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.notification-list{display:grid;gap:8px}.notification-list article{padding:12px;border-radius:10px;background:#1c2544;color:#dfe5ff;font-size:13px}@media(max-width:560px){.daily-target{align-items:stretch;flex-direction:column}.daily-target-actions{justify-content:stretch}.daily-target-actions .btn{flex:1}}
+
+/* Pomodoro'da hazır seçenekler korunur; kalem düğmesiyle saat/dakika da seçilebilir. */
+.duration-picker{flex-wrap:wrap}.duration-picker .custom-duration-btn{display:inline-flex;align-items:center;gap:5px;border:1px dashed #8178eb;background:#242957;color:#e3e0ff}.duration-picker .custom-duration-btn:hover{background:#39347a}.form-note{color:#aeb9d7;font-size:12px;line-height:1.55;margin:0 0 14px}
