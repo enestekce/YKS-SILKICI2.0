@@ -1,0 +1,10 @@
+{
+  "name": "YKS Silkici",
+  "short_name": "YKS Silkici",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#090d1d",
+  "theme_color": "#090d1d",
+  "description": "YKS çalışma planı, pomodoro, deneme ve topluluk uygulaması.",
+  "icons": [{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
