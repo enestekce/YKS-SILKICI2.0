@@ -1,5 +1,5 @@
-/* v25: Uygulama kodunda eski önbelleğin takılı kalmasını engeller. */
-const CACHE='yks-silkici-v25';
+/* v26: Uygulama kodunda eski önbelleğin takılı kalmasını engeller. */
+const CACHE='yks-silkici-v26';
 const CORE=['./','./index.html','./style.css','./app.js','./notes.js','./pomodoro.js','./icon.svg','./manifest.webmanifest'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
